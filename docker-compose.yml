@@ -1,0 +1,15 @@
+version: "3"
+services:
+
+  c_node:
+    build: .
+    volumes:
+      - ".:/app"
+    command: sh -c "npm start"
+
+  c_postgres:
+    image: postgres:9-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: test
